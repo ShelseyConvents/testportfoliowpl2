@@ -1,0 +1,149 @@
+/*
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+*/
+/* Algemene layout */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Helvetica Neue', sans-serif;
+    background-color: #f9f8f6;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Header */
+.navbar {
+    background-color: #ffffff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    padding: 1.5rem 0;
+}
+
+.header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #2a2a2a;
+    text-decoration: none;
+}
+
+.nav {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav a {
+    text-decoration: none;
+    color: #2a2a2a;
+    padding: 0.5rem 1rem;
+    transition: background-color 0.3s;
+    border-radius: 8px;
+}
+
+.nav a:hover,
+.nav a.active {
+    background-color: #e9e4dd;
+}
+
+/* Projecten sectie */
+.projects {
+    padding: 4rem 0;
+    background-color: #fff;
+}
+
+.projects h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: #2a2a2a;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.project {
+    background-color: #fafafa;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    padding: 1.5rem;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.project:hover {
+    transform: translateY(-5px);
+}
+
+.project img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+}
+
+.project h3 {
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+}
+
+.project p {
+    font-size: 0.95rem;
+    color: #555;
+    margin-bottom: 1rem;
+}
+
+.btn {
+    display: inline-block;
+    background-color: #d2c6b2;
+    color: #fff;
+    padding: 0.5rem 1.2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #b6a893;
+}
+
+/* Footer */
+.footer {
+    background-color: #ffffff;
+    padding: 1rem 0;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #555;
+    margin-top: 4rem;
+}
+
+.footer a {
+    color: #7a6f5f;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
