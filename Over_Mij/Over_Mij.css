@@ -6,18 +6,26 @@
 }
 */
 /* styles.css */
-
+/* === Basis === */
+/* === Algemene basis === */
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-    font-family: 'Georgia', serif;
-    line-height: 1.6;
-    background-color: #f9f7f6;
-    color: #2f2f2f;
+    height: 100%;
+    font-family: 'Space Grotesk', sans-serif;
+    background-color: #ffffff;
+    color: #1E1E1E;
+    line-height: 1.7;
+    display: flex;
+    flex-direction: column;
+}
+
+body > section {
+    flex: 1;
 }
 
 .container {
@@ -26,103 +34,57 @@ body {
     padding: 0 20px;
 }
 
+/* === Header / Navbar === */
 .navbar {
-    background-color: #d5c4c0;
-    padding: 1rem 0;
+    background: #D6C4BD;
+    padding: 1.2rem 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
-.navbar .logo {
-    color: #2f2f2f;
-    font-size: 24px;
-    float: left;
-    font-weight: bold;
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.navbar .nav {
+.logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #1E1E1E;
+}
+
+.nav {
     list-style: none;
     display: flex;
-    justify-content: flex-end;
+    gap: 2.5rem;
+    margin-left: auto;
 }
 
-.navbar .nav li {
-    margin-left: 20px;
-}
-
-.navbar .nav a {
-    color: #2f2f2f;
+.nav li a {
     text-decoration: none;
-    font-weight: bold;
+    color: #1E1E1E;
+    font-weight: 600;
     transition: color 0.3s ease;
 }
 
-.navbar .nav a:hover,
-.navbar .nav a.active {
-    color: #e3907e;
+.nav li a:hover,
+.nav li a.active {
+    color: #D49E91;
 }
 
-.hero {
-    background: linear-gradient(to right, #e9dcd6, #f7efed);
-    color: #2f2f2f;
-    padding: 100px 0;
-    text-align: center;
-}
-
-.hero h2 {
-    font-size: 40px;
-    margin-bottom: 20px;
-    font-weight: 400;
-}
-
-.hero p {
-    font-size: 22px;
-    max-width: 700px;
-    margin: 0 auto 30px;
-    line-height: 1.8;
-}
-
-.btn {
-    display: inline-block;
-    padding: 12px 24px;
-    background-color: #e3907e;
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 8px;
-    transition: background-color 0.3s ease;
-}
-
-.btn:hover {
-    background-color: #ce7b69;
-}
-
-.footer {
-    background-color: #d5c4c0;
-    color: #2f2f2f;
-    text-align: center;
-    padding: 20px 0;
-    margin-top: 50px;
-}
-
-.footer a {
-    color: #e3907e;
-    text-decoration: none;
-}
-
-.footer a:hover {
-    text-decoration: underline;
-}
-
+/* === Over mij sectie === */
 .about {
     padding: 100px 0;
-    background-color: #f9f7f6;
 }
 
 .about h2 {
     text-align: center;
     font-size: 36px;
     margin-bottom: 40px;
-    font-weight: 400;
-    color: #2f2f2f;
+    font-weight: 700;
 }
 
 .about-content {
@@ -143,13 +105,60 @@ body {
     max-width: 600px;
     font-size: 18px;
     line-height: 1.8;
+    color: #333;
 }
 
 .about-text a {
-    color: #e3907e;
+    color: #D49E91;
     text-decoration: none;
 }
 
 .about-text a:hover {
     text-decoration: underline;
+}
+
+/* === Contact iconen sectie === */
+.contact-icons {
+    margin-top: 2rem;
+}
+
+.contact-icons h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    text-decoration: none;
+    color: #1E1E1E;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.contact-item:hover {
+    color: #D49E91;
+}
+
+.contact-item img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+}
+
+/* === Footer === */
+.footer {
+    background: #D6C4BD;
+    padding: 30px 0;
+    text-align: center;
+    font-size: 0.95rem;
+    color: #444;
+    margin-top: auto;
 }
