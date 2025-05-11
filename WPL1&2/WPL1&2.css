@@ -6,6 +6,7 @@
 }
 */
 /* Stijlen voor WPL1 & WPL2 pagina - consistent met vorige pagina's */
+/* Algemene stijlen voor de pagina */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -103,22 +104,62 @@ h3 {
     border-radius: 12px;
     padding: 1.5rem;
     margin-bottom: 2rem;
+    position: relative;
 }
 
-.download-link {
+/* Zorg ervoor dat de sectie de grid netjes vasthoudt */
+.wpl {
+    margin-top: 30px;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.project-card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.project-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    margin-bottom: 10px;
+    border-radius: 8px;
+}
+
+.project-card h4 {
+    margin-bottom: 10px;
+    color: #453528;
+}
+
+.project-card a {
+    text-decoration: none;
+}
+
+/* Stijlen voor de downloadknoppen */
+.download-link, .btn {
     display: inline-block;
     margin-top: 1rem;
     color: #D49E91;
     text-decoration: underline;
 }
 
-ul li a {
-    color: #1E1E1E;
+.download-link:hover, .btn:hover {
+    color: #C58575;
     text-decoration: none;
-}
-
-ul li a:hover {
-    text-decoration: underline;
 }
 
 /* ===== FOOTER ===== */
@@ -129,4 +170,15 @@ ul li a:hover {
     font-size: 0.95rem;
     color: #444;
     margin-top: auto;
+}
+
+/* Responsieve aanpassingen voor mobiele weergave */
+@media (max-width: 768px) {
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .project-card {
+        height: auto;
+    }
 }
