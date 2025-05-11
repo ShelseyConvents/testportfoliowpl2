@@ -1,5 +1,4 @@
-// script.js
-
+// Actieve link aanduiden
 document.addEventListener("DOMContentLoaded", () => {
     const navLinks = document.querySelectorAll(".nav a");
 
@@ -7,5 +6,13 @@ document.addEventListener("DOMContentLoaded", () => {
         if (link.href === window.location.href) {
             link.classList.add("active");
         }
+    });
+
+    // Hamburger toggle
+    const hamburger = document.querySelector(".hamburger");
+    const navMenu = document.querySelector(".nav");
+
+    hamburger.addEventListener("click", () => {
+        navMenu.classList.toggle("open");
     });
 });
