@@ -50,6 +50,48 @@
   </div>
 </footer>
 
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    // Activeer de actieve link in navbar
+    const navLinks = document.querySelectorAll(".nav a");
+    navLinks.forEach(link => {
+      if (link.href === window.location.href) {
+        link.classList.add("active");
+      }
+    });
+
+    const hamburger = document.querySelector(".hamburger");
+    const navMenu = document.querySelector(".nav");
+
+    if (hamburger) {
+      hamburger.addEventListener("click", () => {
+        navMenu.classList.toggle("open");
+      });
+    }
+
+    // Sluit het menu als je buiten het menu klikt
+    document.addEventListener('click', (e) => {
+      if (
+              navMenu.classList.contains('open') &&
+              !hamburger.contains(e.target) &&
+              !navMenu.contains(e.target)
+      ) {
+        navMenu.classList.remove('open');
+      }
+    });
+
+    // Simpele form validatie + alert
+    const form = document.querySelector('.contact-form');
+    if (form) {
+      form.addEventListener('submit', e => {
+        e.preventDefault();
+        alert('Bedankt voor je bericht! Ik neem spoedig contact met je op.');
+        form.reset();
+      });
+    }
+  });
+</script>
+</body>
 
 </body>
 </html>
