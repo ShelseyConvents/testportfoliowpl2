@@ -1,55 +1,51 @@
 <!DOCTYPE html>
-<html lang="nl">
+<html lang="NL">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>WPL1 & WPL2 | Portfolio Shelsey Convents</title>
-  <link rel="stylesheet" href="WPL1&2.css">
-  <script src="WPL1&2.js"></script>
-
+  <link rel="stylesheet" href="WPL1&2.css" />
 </head>
-<body class="page-wpl">
-<header class="navbar">
-  <div class="container header-inner">
-    <a href="index.html" class="logo">Shelsey Convents</a>
-    <nav>
+<body>
+<header>
+  <nav class="navbar">
+    <div class="container">
+      <h1 class="logo">Shelsey Convents</h1>
+      <button class="hamburger" aria-label="Menu">&#9776;</button>
       <ul class="nav">
         <li><a href="/home/Home.html">Home</a></li>
         <li><a href="/Over_Mij/Over_Mij.html">Over mij</a></li>
         <li><a href="/Projecten/Projecten.html">School projecten</a></li>
         <li><a href="/Case_Victory/Case_Victory.html">WPL2 Case</a></li>
         <li><a href="/Eigen_projecten/Eigen_Projecten.html">Mijn projecten</a></li>
-        <li><a href="/WPL1&2/WPL1&2.html">WPL1 & WPL2</a></li>
+        <li><a href="/WPL1&2/WPL1&2.html" class="active">WPL1 & WPL2</a></li>
         <li><a href="/Contact%20/Contact.html">Contact</a></li>
       </ul>
-    </nav>
-  </div>
+    </div>
+  </nav>
 </header>
 
 <main class="wpl">
   <div class="container">
     <h2>Werkplekleren 1 & 2</h2>
 
-    <!-- WPL1 Opdrachten Sectie -->
+    <!-- Jouw inhoud hier, niet gewijzigd -->
     <section class="case-block">
       <h3>WPL1 Opdrachten</h3>
       <p>
         Werkplekleren is een vak waarin we kennismaken met de praktijk van het werkveld. Door opdrachten en reflecties leren we hoe we onze skills kunnen inzetten voor echte situaties. Hier toon ik enkele opdrachten die ik tijdens dit vak heb gemaakt.
       </p>
       <div class="project-grid">
-        <!-- Hoofdstuk 1 PDF Link -->
         <div class="project-card">
           <img src="/Assets/Pop-sessie.mogrt" alt="" />
           <h4>Pop-Sessies</h4>
           <a href="https://drive.google.com/file/d/1nYZu6a5syvGuXn2UqVdOacrlFvOKWmyQ/view?usp=share_link" target="_blank" class="btn">Bekijk Pop-sessies</a>
         </div>
-        <!-- Hoofdstuk 2 PDF Link -->
         <div class="project-card">
           <img src="path/to/thumbnail2.jpg" alt="" />
           <h4>Werkveldverkenning</h4>
           <a href="https://drive.google.com/file/d/1MeaHiMvYv9L4kYBw-1hATm9Gf4JhU_Ii/view?usp=sharing" target="_blank" class="btn">Bekijk werkveldverkenning</a>
         </div>
-        <!-- Hoofdstuk 3 PDF Link -->
         <div class="project-card">
           <img src="path/to/thumbnail3.jpg" alt="" />
           <h4>Dashboard project</h4>
@@ -58,16 +54,14 @@
       </div>
     </section>
 
-    <!-- WPL2 Eindreflectie Sectie -->
     <section class="case-block">
       <h3>WPL2 Eindreflectie</h3>
       <p>
-        In deze reflectie blik ik terug op mijn leerproces en samenwerking binnen de case. De PDF bevat mijn inzichten, persoonlijke groei en werkhouding.
+        In deze reflectie blik ik terug op mijn leerproces en samenwerking binnen de case. Dit document bevat mijn inzichten, persoonlijke groei en werkhouding tijdens het project.
       </p>
       <a href="https://drive.google.com/file/d/1ktfu0DeoM7UV0QFjwBMEvz6qqceQLtM2/view?usp=sharing" class="download-link" target="_blank">Bekijk eindreflectie</a>
     </section>
 
-    <!-- WPL2 Bijlagen en Resultaten Sectie -->
     <section class="case-block">
       <h3>Resultaten</h3>
       <ul>
@@ -75,7 +69,6 @@
         <li><a href="downloads/resultaten-wpl2.zip" download>Case resultaten (ZIP)</a></li>
       </ul>
     </section>
-
   </div>
 </main>
 
@@ -84,5 +77,24 @@
     <p>&copy; 2025 Shelsey Convents – All Rights Reserved</p>
   </div>
 </footer>
+
+<script>
+  // Actieve link aanduiden + hamburger toggle (zelfde als homepagina)
+  document.addEventListener("DOMContentLoaded", () => {
+    const navLinks = document.querySelectorAll(".nav a");
+    navLinks.forEach(link => {
+      if (link.href === window.location.href) {
+        link.classList.add("active");
+      }
+    });
+
+    const hamburger = document.querySelector(".hamburger");
+    const navMenu = document.querySelector(".nav");
+
+    hamburger.addEventListener("click", () => {
+      navMenu.classList.toggle("open");
+    });
+  });
+</script>
 </body>
 </html>

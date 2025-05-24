@@ -1,14 +1,17 @@
-// Highlight de actieve link in het menu
-
-document.addEventListener('DOMContentLoaded', () => {
-    const navLinks = document.querySelectorAll('.nav a');
-    const currentPath = window.location.pathname.split('/').pop();
-
+document.addEventListener("DOMContentLoaded", () => {
+    // Activeer actieve link
+    const navLinks = document.querySelectorAll(".nav a");
     navLinks.forEach(link => {
-        if (link.getAttribute('href') === currentPath) {
-            link.classList.add('active');
-        } else {
-            link.classList.remove('active');
+        if (link.href === window.location.href) {
+            link.classList.add("active");
         }
+    });
+
+    // Hamburger menu toggle
+    const hamburger = document.querySelector(".hamburger");
+    const navMenu = document.querySelector(".nav");
+
+    hamburger.addEventListener("click", () => {
+        navMenu.classList.toggle("open");
     });
 });

@@ -5,7 +5,7 @@
     box-sizing: border-box;
 }
 */
-/* Algemene reset en layout */
+
 /* Algemene reset en layout */
 * {
     box-sizing: border-box;
@@ -21,10 +21,12 @@ html, body {
     line-height: 1.7;
     display: flex;
     flex-direction: column;
+
 }
 
 body > main {
     flex: 1;
+
 }
 
 .container {
@@ -41,23 +43,24 @@ body > main {
     position: sticky;
     top: 0;
     z-index: 1000;
+
 }
 
 .navbar .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 0 20px;
+    position: relative;
 }
 
 .logo {
     font-size: 1.8rem;
     font-weight: 700;
     color: #1E1E1E;
-    text-decoration: none;
-}
-
-.logo span {
-    color: #D49E91;
+    white-space: nowrap;
+    margin-right: 50px;
+    text-decoration: none
 }
 
 .nav {
@@ -65,26 +68,29 @@ body > main {
     display: flex;
     gap: 2.5rem;
     margin-left: auto;
+    white-space: nowrap;
 }
 
 .nav li a {
     text-decoration: none;
     color: #1E1E1E;
     font-weight: 600;
-    position: relative;
     transition: color 0.3s ease;
 }
 
-.nav li a:hover {
+.nav li a:hover,
+.nav li a.active {
     color: #D49E91;
 }
 
-/* Actieve pagina (Case) */
-.nav li a.active {
-    color: #D49E91;
-    background-color: #ECE7E1;
-    border-radius: 6px;
-    padding: 0.5rem 0.8rem;
+/* Hamburger menu */
+.hamburger {
+    display: none;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #1E1E1E;
 }
 
 /* ===== HERO SECTION ===== */
@@ -208,10 +214,14 @@ body > main {
     text-decoration: underline;
 }
 
-/*responsief*/
+/* ===== MEDIA QUERIES ===== */
 @media (max-width: 991px) {
     .hamburger {
         display: block;
+    }
+
+    .logo {
+        margin-right: 0;
     }
 
     .nav {
@@ -220,7 +230,11 @@ body > main {
         width: 100%;
         background: #D6C4BD;
         padding: 1rem 0;
-        margin-top: 1rem;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+        white-space: normal;
     }
 
     .nav.open {
@@ -232,8 +246,47 @@ body > main {
         margin: 0.5rem 0;
     }
 
+    .nav li a {
+        padding: 10px 0;
+        display: block;
+    }
+
     .navbar .container {
-        flex-direction: column;
-        align-items: flex-start;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 20px;
+        position: relative;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero h2 {
+        font-size: 2.2rem;
+    }
+
+    .hero p {
+        font-size: 1.1rem;
+        padding: 0 1rem;
+    }
+
+    .btn {
+        padding: 12px 24px;
+        font-size: 1rem;
+    }
+
+    .logo {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .btn {
+        width: 100%;
+        text-align: center;
+    }
+
+    .container {
+        padding: 0 12px;
     }
 }

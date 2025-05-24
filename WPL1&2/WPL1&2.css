@@ -5,8 +5,8 @@
     box-sizing: border-box;
 }
 */
-/* Stijlen voor WPL1 & WPL2 pagina - consistent met vorige pagina's */
-/* Algemene stijlen voor de pagina */
+
+/* Algemene resets en layout */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -30,10 +30,10 @@ body > main {
 .container {
     max-width: 1100px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 40px; /* zelfde padding als homepagina */
 }
 
-/* ===== HEADER / NAVIGATION ===== */
+/* ===== NAVIGATION ===== */
 .navbar {
     background: #D6C4BD;
     padding: 1.2rem 0;
@@ -53,11 +53,8 @@ body > main {
     font-size: 1.8rem;
     font-weight: 700;
     color: #1E1E1E;
-    text-decoration: none;
-}
-
-.logo span {
-    color: #D49E91;
+    white-space: nowrap;
+    margin-right: 50px;
 }
 
 .nav {
@@ -65,18 +62,13 @@ body > main {
     display: flex;
     gap: 2.5rem;
     margin-left: auto;
-    padding: 0;
-}
-
-.nav li {
-    list-style: none;
+    white-space: nowrap;
 }
 
 .nav li a {
     text-decoration: none;
     color: #1E1E1E;
     font-weight: 600;
-    position: relative;
     transition: color 0.3s ease;
 }
 
@@ -85,7 +77,17 @@ body > main {
     color: #D49E91;
 }
 
-/* ===== TITELS & INHOUD ===== */
+/* Hamburger menu */
+.hamburger {
+    display: none;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #1E1E1E;
+}
+
+/* ===== JOUW PAGINA SPECIFIEKE STIJLEN ===== */
 h2 {
     font-size: 2rem;
     margin-bottom: 1rem;
@@ -107,7 +109,6 @@ h3 {
     position: relative;
 }
 
-/* Zorg ervoor dat de sectie de grid netjes vasthoudt */
 .wpl {
     margin-top: 30px;
 }
@@ -149,7 +150,7 @@ h3 {
     text-decoration: none;
 }
 
-/* Stijlen voor de downloadknoppen */
+/* Stijlen voor downloadknoppen */
 .download-link, .btn {
     display: inline-block;
     margin-top: 1rem;
@@ -172,10 +173,14 @@ h3 {
     margin-top: auto;
 }
 
-/* Responsieve aanpassingen voor mobiele weergave */
+/* ===== MEDIA QUERIES ===== */
 @media (max-width: 991px) {
     .hamburger {
         display: block;
+    }
+
+    .logo {
+        margin-right: 0;
     }
 
     .nav {
@@ -184,7 +189,11 @@ h3 {
         width: 100%;
         background: #D6C4BD;
         padding: 1rem 0;
-        margin-top: 1rem;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+        white-space: normal;
     }
 
     .nav.open {
@@ -196,9 +205,35 @@ h3 {
         margin: 0.5rem 0;
     }
 
+    .nav li a {
+        padding: 10px 0;
+        display: block;
+    }
+
     .navbar .container {
-        flex-direction: column;
-        align-items: flex-start;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+        padding: 0 20px;
     }
 }
 
+@media (max-width: 768px) {
+    h2 {
+        font-size: 1.8rem;
+    }
+    h3 {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .btn {
+        width: 100%;
+        text-align: center;
+    }
+    .container {
+        padding: 0 12px;
+    }
+}

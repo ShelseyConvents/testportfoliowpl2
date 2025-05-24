@@ -1,14 +1,20 @@
-// Zorgt dat de actieve link gemarkeerd blijft op basis van de URL
-
-document.addEventListener('DOMContentLoaded', () => {
-    const navLinks = document.querySelectorAll('.nav a');
-    const currentPath = window.location.pathname.split('/').pop();
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+    const navLinks = document.querySelectorAll(".nav a");
 
     navLinks.forEach(link => {
-        if (link.getAttribute('href') === currentPath) {
-            link.classList.add('active');
-        } else {
-            link.classList.remove('active');
-        }
-    });
+    if (link.href === window.location.href) {
+    link.classList.add("active");
+}
 });
+
+    const hamburger = document.querySelector(".hamburger");
+    const navMenu = document.querySelector(".nav");
+
+    if (hamburger) {
+    hamburger.addEventListener("click", () => {
+    navMenu.classList.toggle("open");
+});
+}
+});
+</script>

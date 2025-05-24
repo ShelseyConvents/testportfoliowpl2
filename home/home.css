@@ -6,8 +6,6 @@
 }
 */
 /* styles.css */
-
-/* styles.css */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -29,9 +27,10 @@ body > main {
 }
 
 .container {
-    max-width: 1100px;
+    max-width: 1100px; /* Houd deze breedte, of verhoog deze lichtjes als je meer ruimte nodig hebt */
     margin: 0 auto;
-    padding: 0 20px;
+    /* VERGROOT DE HORIZONTALE PADDING OM MEER RUIMTE TE CREËREN AAN DE ZIJKANTEN */
+    padding: 0 40px; /* Van 20px naar 40px, pas aan naar wens */
 }
 
 /* ===== NAVIGATION ===== */
@@ -46,22 +45,26 @@ body > main {
 
 .navbar .container {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
+    justify-content: space-between; /* Duwt logo naar links en menu naar rechts */
+    align-items: center; /* Centreert items verticaal */
+    /* flex-wrap: wrap; is verwijderd om items op één lijn te houden */
 }
 
 .logo {
     font-size: 1.8rem;
     font-weight: 700;
     color: #1E1E1E;
+    white-space: nowrap; /* Voorkom dat de tekst afbreekt */
+    /* VERGROOT DEZE MARGE OM MEER AFSTAND TUSSEN LOGO EN MENU TE CREËREN */
+    margin-right: 50px; /* Van 20px naar 50px, pas aan naar wens */
 }
 
 .nav {
     list-style: none;
-    display: flex;
-    gap: 2.5rem;
-    margin-left: auto;
+    display: flex; /* Zorgt ervoor dat menu-items naast elkaar staan */
+    gap: 2.5rem; /* Creëert ruimte tussen de individuele menu-items */
+    margin-left: auto; /* Duwt het menu naar rechts */
+    white-space: nowrap; /* Voorkom dat het hele menu afbreekt */
 }
 
 .nav li a {
@@ -78,11 +81,12 @@ body > main {
 
 /* Hamburger menu */
 .hamburger {
-    display: none;
+    display: none; /* Standaard verborgen op desktop */
     font-size: 2rem;
     background: none;
     border: none;
     cursor: pointer;
+    color: #1E1E1E;
 }
 
 /* ===== HERO SECTION ===== */
@@ -147,20 +151,30 @@ body > main {
 /* ======== MEDIA QUERIES ======== */
 @media (max-width: 991px) {
     .hamburger {
-        display: block;
-        color: #1E1E1E;
+        display: block; /* Toon de hamburger op kleinere schermen */
+    }
+
+    .logo {
+        /* Reset de margin-right voor kleinere schermen zodat het logo netjes uitlijnt */
+        margin-right: 0;
     }
 
     .nav {
+        /* Verbergt het menu standaard op kleinere schermen voor de hamburger functionaliteit */
         display: none;
-        flex-direction: column;
-        width: 100%;
+        flex-direction: column; /* Menu-items onder elkaar */
+        width: 100%; /* Neemt de volledige breedte in bij openen */
         background: #D6C4BD;
         padding: 1rem 0;
+        position: absolute; /* Positioneert het menu onder de navbar */
+        top: 100%; /* Begint direct onder de navbar */
+        left: 0;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+        white-space: normal; /* Toestaan dat tekst afbreekt in het mobiele menu */
     }
 
     .nav.open {
-        display: flex;
+        display: flex; /* Toon het menu wanneer geactiveerd door de hamburger */
     }
 
     .nav li {
@@ -168,9 +182,19 @@ body > main {
         margin: 0.5rem 0;
     }
 
+    .nav li a {
+        padding: 10px 0; /* Meer padding voor klikbaarheid op mobiel */
+        display: block; /* Maakt de hele link klikbaar */
+    }
+
     .navbar .container {
-        flex-direction: column;
-        align-items: flex-start;
+        /* Voor mobiel: logo en hamburger op één lijn, menu klapt eronder uit */
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        position: relative; /* Nodig voor absolute positionering van het uitklappende menu */
+        /* Reset de padding voor kleinere schermen als dat beter past */
+        padding: 0 20px; /* Pas deze aan als je op mobiel een andere padding wilt */
     }
 }
 

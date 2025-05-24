@@ -1,21 +1,29 @@
-// Navigatie link activeren (zoals andere pagina's)
-document.addEventListener('DOMContentLoaded', () => {
-    const navLinks = document.querySelectorAll('.nav a');
-    const currentPath = window.location.pathname.split('/').pop();
-
+document.addEventListener("DOMContentLoaded", () => {
+    // Activeer de actieve link in navbar
+    const navLinks = document.querySelectorAll(".nav a");
     navLinks.forEach(link => {
-        if (link.getAttribute('href') === currentPath) {
-            link.classList.add('active');
-        } else {
-            link.classList.remove('active');
+        if (link.href === window.location.href) {
+            link.classList.add("active");
         }
     });
 
-    // Simpele form validatie (optioneel uitbreidbaar)
+    // Hamburger menu toggle
+    const hamburger = document.querySelector(".hamburger");
+    const navMenu = document.querySelector(".nav");
+
+    if (hamburger) {
+        hamburger.addEventListener("click", () => {
+            navMenu.classList.toggle("open");
+        });
+    }
+
+    // Simpele form validatie + alert
     const form = document.querySelector('.contact-form');
-    form.addEventListener('submit', e => {
-        e.preventDefault();
-        alert('Bedankt voor je bericht! Ik neem spoedig contact met je op.');
-        form.reset();
-    });
+    if (form) {
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            alert('Bedankt voor je bericht! Ik neem spoedig contact met je op.');
+            form.reset();
+        });
+    }
 });

@@ -1,11 +1,4 @@
-/*
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
-*/
-/* ========== BASISSTIJLEN ========== */
+/* ===== Algemene reset ===== */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -29,10 +22,10 @@ body > main {
 .container {
     max-width: 1100px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 40px; /* Zelfde als homepagina */
 }
 
-/* ========== HEADER / NAVIGATIE ========== */
+/* ===== NAVBAR ===== */
 .navbar {
     background: #D6C4BD;
     padding: 1.2rem 0;
@@ -52,21 +45,23 @@ body > main {
     font-size: 1.8rem;
     font-weight: 700;
     color: #1E1E1E;
-    text-decoration: none;
+    white-space: nowrap;
+    margin-right: 50px; /* Zelfde als homepagina */
 }
 
+/* NAV */
 .nav {
     list-style: none;
     display: flex;
     gap: 2.5rem;
     margin-left: auto;
+    white-space: nowrap;
 }
 
 .nav li a {
     text-decoration: none;
     color: #1E1E1E;
     font-weight: 600;
-    position: relative;
     transition: color 0.3s ease;
 }
 
@@ -75,7 +70,17 @@ body > main {
     color: #D49E91;
 }
 
-/* ========== PROJECTEN / CASE ========== */
+/* Hamburger menu - standaard verborgen */
+.hamburger {
+    display: none;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #1E1E1E;
+}
+
+/* ===== Projecten pagina inhoud ===== */
 h2 {
     font-size: 2.5rem;
     margin-bottom: 2rem;
@@ -98,28 +103,12 @@ h3 {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
 }
 
-.case-block p,
-.case-block ul {
+.case-block p {
     color: #333;
     line-height: 1.6;
 }
 
-.case-block ul {
-    list-style-type: disc;
-    padding-left: 1.5rem;
-}
-
-.case-block ul li a {
-    color: #D49E91;
-    text-decoration: none;
-}
-
-.case-block ul li a:hover {
-    text-decoration: underline;
-    color: #C58575;
-}
-
-/* ========== Afbeeldingen naast elkaar ========== */
+/* Afbeeldingen naast elkaar */
 .case-block img.voorbeeld-img {
     width: 100%;
     max-width: 32%;
@@ -134,7 +123,7 @@ h3 {
     margin-right: 0;
 }
 
-/* ========== FOOTER ========== */
+/* ===== Footer ===== */
 .footer {
     background: #D6C4BD;
     padding: 30px 0;
@@ -144,16 +133,8 @@ h3 {
     margin-top: auto;
 }
 
-.footer a {
-    color: #D49E91;
-    text-decoration: none;
-}
-
-.footer a:hover {
-    text-decoration: underline;
-}
-
-/*responsief*/
+/* Responsief */
+/* Tablet en kleiner */
 @media (max-width: 991px) {
     .hamburger {
         display: block;
@@ -165,7 +146,11 @@ h3 {
         width: 100%;
         background: #D6C4BD;
         padding: 1rem 0;
-        margin-top: 1rem;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+        white-space: normal;
     }
 
     .nav.open {
@@ -177,8 +162,49 @@ h3 {
         margin: 0.5rem 0;
     }
 
+    .nav li a {
+        padding: 10px 0;
+        display: block;
+    }
+
     .navbar .container {
-        flex-direction: column;
-        align-items: flex-start;
+        position: relative;
+        padding: 0 20px;
+    }
+}
+
+/* Kleinere schermen */
+@media (max-width: 768px) {
+    h2 {
+        font-size: 2rem;
+    }
+
+    h3 {
+        font-size: 1.3rem;
+    }
+
+    .container {
+        padding: 0 20px;
+    }
+
+    .logo {
+        font-size: 1.5rem;
+        margin-right: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .btn {
+        width: 100%;
+        text-align: center;
+    }
+
+    .container {
+        padding: 0 12px;
+    }
+
+    .case-block img.voorbeeld-img {
+        max-width: 100%;
+        margin-right: 0;
     }
 }
