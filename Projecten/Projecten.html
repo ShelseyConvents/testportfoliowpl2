@@ -21,11 +21,12 @@
         <li><a href="/Case_Victory/Case_Victory.html">WPL2 Case</a></li>
         <li><a href="/Eigen_projecten/Eigen_Projecten.html">Mijn projecten</a></li>
         <li><a href="/WPL1&2/WPL1&2.html">WPL1 & WPL2</a></li>
-        <li><a href="/Contact%20/Contact.html">Contact</a></li>
+        <li><a href="/Contact/Contact.html">Contact</a></li>
       </ul>
     </div>
   </nav>
 </header>
+
 
 <main>
   <section class="projects">
@@ -87,5 +88,35 @@
   </div>
 </footer>
 
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    // Actieve menu-item aanduiden
+    const navLinks = document.querySelectorAll(".nav a");
+    const currentPath = window.location.pathname;
+
+    navLinks.forEach(link => {
+      if (link.getAttribute("href").includes(currentPath)) {
+        link.classList.add("active");
+      }
+    });
+
+    // Hamburger menu togglen
+    const hamburger = document.querySelector(".hamburger");
+    const navMenu = document.querySelector(".nav");
+
+    if (hamburger && navMenu) {
+      hamburger.addEventListener("click", () => {
+        navMenu.classList.toggle("open");
+      });
+
+      // Sluit menu bij klikken op link (mobiel gebruik)
+      document.querySelectorAll(".nav a").forEach(link => {
+        link.addEventListener("click", () => {
+          navMenu.classList.remove("open");
+        });
+      });
+    }
+  });
+</script>
 </body>
 </html>

@@ -29,7 +29,6 @@
   <div class="container">
     <h2>Werkplekleren 1 & 2</h2>
 
-    <!-- Jouw inhoud hier, niet gewijzigd -->
     <section class="case-block">
       <h3>WPL1 Opdrachten</h3>
       <p>
@@ -62,11 +61,11 @@
       <a href="https://drive.google.com/file/d/1ktfu0DeoM7UV0QFjwBMEvz6qqceQLtM2/view?usp=sharing" class="download-link" target="_blank">Bekijk eindreflectie</a>
     </section>
 
-    <section class="case-block">
+    <section class="case-block resultaten">
       <h3>Resultaten</h3>
       <ul>
         <li><a href="https://drive.google.com/file/d/11_1_GWHGUe2EuvKFhL5szk8iDuo4yCJ6/view?usp=sharing" target="_blank">Eindpresentatie</a></li>
-        <li><a href="downloads/resultaten-wpl2.zip" download>Case resultaten (ZIP)</a></li>
+        <li><a href="downloads/resultaten-wpl2.zip" download> Case proces </a></li>
       </ul>
     </section>
   </div>
@@ -79,15 +78,21 @@
 </footer>
 
 <script>
-  // Actieve link aanduiden + hamburger toggle (zelfde als homepagina)
   document.addEventListener("DOMContentLoaded", () => {
+    // Activeer het menu-item dat overeenkomt met de pagina
     const navLinks = document.querySelectorAll(".nav a");
+    const currentPath = window.location.pathname;
+
     navLinks.forEach(link => {
-      if (link.href === window.location.href) {
+      // Hier checken we of de link gelijk is aan huidige url
+      if (link.getAttribute("href") === currentPath) {
         link.classList.add("active");
+      } else {
+        link.classList.remove("active");
       }
     });
 
+    // Hamburger menu togglen
     const hamburger = document.querySelector(".hamburger");
     const navMenu = document.querySelector(".nav");
 
